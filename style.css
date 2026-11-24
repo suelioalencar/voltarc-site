@@ -1,4 +1,4 @@
-/* ESBOÇO B — Moderno e comercial | Voltarc Engenharia
+/* Voltarc Engenharia | Estilo moderno e comercial
    Tipografia: Sora (títulos) + Manrope (texto), via Google Fonts (link no <head> de cada página).
 
    ACENTO ESCOLHIDO: laranja #ED5F1D (laranja intenso da marca Voltarc Energia Solar).
@@ -175,7 +175,6 @@ p { margin: 0 0 1em; }
 .stat { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
 .stat b { display: block; font-family: var(--font-title); font-size: 1.6rem; font-weight: 800; color: var(--blue); line-height: 1.1; }
 .stat span { font-size: .86rem; color: var(--muted); }
-.pending { background: #FFE49A !important; color: #4A3300 !important; padding: 1px 6px; border-radius: 6px; font-weight: 700; font-size: .92em; }
 
 /* ---------- FAQ ---------- */
 .faq { max-width: 820px; }
@@ -212,12 +211,16 @@ p { margin: 0 0 1em; }
 .form { background: var(--surface); color: var(--ink); border-radius: var(--r-lg); padding: 22px; display: grid; gap: 14px; }
 .form h3 { margin: 0; }
 .field label { display: block; font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
-.field input, .field select {
+.field input, .field select, .field textarea {
   width: 100%; min-height: 48px; padding: 10px 14px; font: inherit; color: var(--ink); background: var(--bg);
   border: 1.5px solid #CFC9BD; border-radius: var(--r-sm);
 }
-.field input:focus, .field select:focus { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--blue); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--blue); }
+.field textarea { min-height: 96px; resize: vertical; }
 .form-note { font-size: .82rem; color: var(--muted); margin: 0; }
+.form-note a { color: var(--blue); }
+.form-alt { margin: 0; font-size: .92rem; text-align: center; }
+.form-alt a { color: var(--blue); font-weight: 700; }
 
 /* ---------- Rodapé ---------- */
 .site-footer { background: var(--ink); color: #C9CED6; padding: 40px 0 96px; font-size: .92rem; }
@@ -226,6 +229,7 @@ p { margin: 0 0 1em; }
 .site-footer h4 { color: #fff; font-size: .95rem; margin-bottom: 8px; }
 .site-footer a { color: #fff; }
 .site-footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
+.legal a { color: #C9CED6; }
 .legal { border-top: 1px solid #333A45; margin-top: 28px; padding-top: 16px; font-size: .82rem; color: #9AA1AD; }
 
 /* ---------- WhatsApp flutuante ---------- */
@@ -233,9 +237,25 @@ p { margin: 0 0 1em; }
   position: fixed; right: 14px; bottom: 14px; z-index: 60; display: inline-flex; align-items: center; gap: 8px;
   background: var(--accent); color: var(--ink); font-family: var(--font-title); font-weight: 700; font-size: .95rem;
   text-decoration: none; min-height: 54px; padding: 0 20px; border-radius: 999px; box-shadow: 0 8px 24px rgba(20, 24, 31, .28);
+  border: 0; cursor: pointer;
 }
 .wa-float svg { width: 24px; height: 24px; }
 .wa-float:hover { background: #FF7433; }
+.wa-float:focus-visible, .wa-opt:focus-visible, .wa-close:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+/* ---------- Menu de escolha do WhatsApp ---------- */
+.wa-menu {
+  position: fixed; z-index: 70; left: 14px; right: 14px; bottom: 80px; background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--r); box-shadow: 0 14px 40px rgba(20, 24, 31, .28); padding: 14px; display: grid; gap: 10px;
+}
+.wa-menu[hidden] { display: none; }
+.wa-menu-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.wa-menu-t { font-family: var(--font-title); font-weight: 700; margin: 0; }
+.wa-close { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); font-size: 1.3rem; line-height: 1; cursor: pointer; color: var(--ink); }
+.wa-opt { display: block; text-decoration: none; color: var(--ink); background: var(--bg); border: 1.5px solid var(--line); border-radius: var(--r-sm); padding: 12px 14px; min-height: 48px; }
+.wa-opt:hover { border-color: var(--blue); background: var(--blue-soft); }
+.wa-opt b { display: block; font-family: var(--font-title); font-size: .95rem; }
+.wa-opt span { color: var(--muted); font-size: .9rem; }
 
 /* ---------- Página de serviço ---------- */
 .crumbs { font-size: .86rem; color: var(--muted); padding: 16px 0 0; }
@@ -258,6 +278,13 @@ p { margin: 0 0 1em; }
 .cta-band { background: var(--blue); color: #fff; border-radius: var(--r-lg); padding: 28px 22px; display: grid; gap: 16px; }
 .cta-band h2 { color: #fff; margin: 0; font-size: clamp(1.4rem, 4.2vw, 2rem); }
 .cta-band p { margin: 0; color: #D4E0F7; }
+
+/* ---------- Responsáveis técnicos e política ---------- */
+.resp { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 4px; font-size: .94rem; font-weight: 700; }
+.resp span { display: block; font-weight: 500; color: var(--muted); font-size: .88rem; }
+.prose { max-width: 720px; }
+.prose h2 { font-size: 1.25rem; margin-top: 1.6em; }
+.prose ul { padding-left: 1.2em; }
 
 /* ---------- Telas maiores ---------- */
 @media (min-width: 640px) {
@@ -289,6 +316,7 @@ p { margin: 0 0 1em; }
   .cta-band { grid-template-columns: 1fr auto; align-items: center; padding: 36px; }
   .site-footer { padding-bottom: 40px; }
   .wa-float { right: 24px; bottom: 24px; }
+  .wa-menu { left: auto; right: 24px; bottom: 92px; width: 320px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
